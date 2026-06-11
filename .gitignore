@@ -1,0 +1,169 @@
+# ============================================================
+# Environment variables and secrets
+# ============================================================
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+secrets/
+.secret/
+credentials/
+private/
+certs/
+keys/
+
+# Cloud / deployment secrets
+*.tfvars
+terraform.tfstate
+terraform.tfstate.*
+.terraform/
+
+# ============================================================
+# Python / FastAPI
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.so
+
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Alembic generated files can be tracked if intentional.
+# Do NOT ignore backend/alembic/versions unless you do not want migrations tracked.
+
+# ============================================================
+# Node / Next.js
+# ============================================================
+
+node_modules/
+
+.next/
+out/
+build/
+dist/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# ============================================================
+# Docker
+# ============================================================
+
+.docker/
+docker-data/
+docker-volumes/
+
+# Local Docker Compose overrides
+docker-compose.override.yml
+compose.override.yml
+
+# Keep Dockerfiles and main docker-compose.yml tracked.
+# Do not ignore:
+# Dockerfile
+# docker-compose.yml
+
+# ============================================================
+# Database / Postgres local files
+# ============================================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+pgdata/
+postgres-data/
+data/postgres/
+database/data/
+
+*.dump
+*.sql.gz
+*.backup
+
+# Be careful with raw .sql files:
+# Track schema/migration SQL if intentional.
+# Do not commit real production dumps.
+
+# ============================================================
+# Logs
+# ============================================================
+
+logs/
+*.log
+
+# ============================================================
+# OS / editor files
+# ============================================================
+
+.DS_Store
+Thumbs.db
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+
+.idea/
+
+*.swp
+*.swo
+
+# ============================================================
+# Test / coverage artifacts
+# ============================================================
+
+coverage/
+test-results/
+playwright-report/
+
+# ============================================================
+# Generated reports
+# ============================================================
+
+reports/
+scan-results/
+trivy-results/
+security-reports/
+
+# ============================================================
+# Misc local files
+# ============================================================
+
+tmp/
+temp/
+.cache/
+
+*.local
