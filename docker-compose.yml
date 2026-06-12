@@ -7,7 +7,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_API_URL=http://backend:8000
     depends_on:
       - backend
 
@@ -17,23 +17,23 @@ services:
     container_name: portfolio_backend
     ports:
       - "8000:8000"
-    env_file:
-      - .env
-    depends_on:
-      - postgres
+    # env_file:
+    #   - .env
+#     depends_on:
+#       - postgres
 
-  postgres:
-    image: postgres:16
-    container_name: portfolio_postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: portfolio
-      POSTGRES_USER: portfolio_user
-      POSTGRES_PASSWORD: portfolio_password
-    ports:
-      - "5432:5432"
-    volumes:
-      - portfolio_postgres_data:/var/lib/postgresql/data
+#   postgres:
+#     image: postgres:16
+#     container_name: portfolio_postgres
+#     restart: unless-stopped
+#     environment:
+#       POSTGRES_DB: portfolio
+#       POSTGRES_USER: portfolio_user
+#       POSTGRES_PASSWORD: portfolio_password
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - portfolio_postgres_data:/var/lib/postgresql/data
 
-volumes:
-  portfolio_postgres_data:
+# volumes:
+#   portfolio_postgres_data:

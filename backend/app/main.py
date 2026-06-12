@@ -1,30 +1,27 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.routes import router
 
 app = FastAPI(
     title="Portfolio Platform API",
     version="0.1.0",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(router)
+
 
 @app.get("/health")
 def health_check():
-    return {
-        "status": "ok",
-        "service": "portfolio-backend",
-    }
-
-
-@app.get("/api/projects")
-def get_projects():
-    return [
-        {
-            "title": "HPC Home Lab",
-            "summary": "Rocky Linux-based multi-node lab for learning Linux systems, networking, and HPC security concepts.",
-            "tags": ["Linux", "Rocky Linux", "HPC", "Cybersecurity"],
-        },
-        {
-            "title": "Trimble Vista ERP Development",
-            "summary": "Professional full-stack ERP development and maintenance experience.",
-            "tags": ["Full Stack", "ERP", "SQL", "Business Systems"],
-        },
-    ]
+    return {"status": "ok"}
