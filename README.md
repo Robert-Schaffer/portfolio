@@ -6,6 +6,15 @@ A full-stack, containerized portfolio and security operations platform built wit
 
 This project demonstrates full-stack software engineering, Linux system administration, Dockerized deployment, PostgreSQL-backed application design, and cybersecurity-focused home lab operations.
 
+## Current Status
+
+The application currently runs as a Dockerized full-stack app with:
+
+- Next.js frontend
+- FastAPI backend
+- Docker Compose service networking
+- A projects page that fetches project data from the backend API
+
 ## Stack
 
 - Next.js

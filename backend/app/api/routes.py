@@ -1,26 +1,13 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
 
-from app.schemas.project import Project
+from app.db.session import get_db
+from app.models.project import Project
+from app.schemas.project import ProjectResponse
 
 router = APIRouter(prefix="/api")
 
 
-@router.get("/projects", response_model=list[Project])
-def get_projects():
-    return [
-        {
-            "title": "HPC Home Lab",
-            "summary": "A Rocky Linux-based home lab built to explore Linux administration, networking, shared storage, and HPC security concepts.",
-            "tags": ["Rocky Linux", "Linux", "HPC", "Cybersecurity"],
-        },
-        {
-            "title": "Full-Stack Portfolio Platform",
-            "summary": "A containerized portfolio platform built with Next.js, FastAPI, PostgreSQL, and Docker Compose.",
-            "tags": ["Next.js", "FastAPI", "PostgreSQL", "Docker"],
-        },
-        {
-            "title": "ERP Software Engineering",
-            "summary": "Professional full-stack ERP development experience maintaining and extending Trimble Vista ERP software.",
-            "tags": ["Full Stack", "ERP", "SQL", "Business Systems"],
-        },
-    ]
+@router.get("/projects", response_model=list[ProjectResponse])
+def get_projects(db: Session = Depends(get_db)):
+    return db.query(Project).order_by(Project.id).all()
