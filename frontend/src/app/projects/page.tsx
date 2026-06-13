@@ -42,6 +42,12 @@ export default async function ProjectsPage() {
                   </span>
                 ))}
               </div>
+              <a
+                href={`/projects/${project.slug}`}
+                className="mt-6 inline-block text-sm font-semibold text-cyan-400 hover:text-cyan-300"
+              >
+                View project
+              </a>
             </article>
           ))}
         </div>
